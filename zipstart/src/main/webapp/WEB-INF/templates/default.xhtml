@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+		<head>
+		<title><ui:insert name="pageTitle">Page Title</ui:insert></title>
+		<style type="text/css">
+			body {
+				  font-family: Verdana, Arial, Helvetica, sans-serif;
+				  font-size: 15px;
+			}
+			.header {				  
+				  font-size: 1.5rem;
+				  padding-left: 1%;
+				  background-image: '/resources/img/mnc-logo.jpg';
+			}
+			.nav {
+				  font-size: 1rem;
+				  padding-left: 1%;
+				  padding-right: 1%;
+			}
+			
+			.message {
+				font-size: .8rem;
+				padding-left: 1%;
+				padding-top: 1%;
+				float: left;
+			}
+			.addLink {
+				font-size: .8rem;
+				padding-right: 1%;
+				padding-top: 1%;
+				float: right;
+			}
+			.bottom {				  
+				  font-size: .5rem;
+				  text-align: center;
+				  vertical-align: middle;
+				  color: #8E969D;
+			}
+		</style>
+		</head>
+
+<body bgcolor="#ffffff">
+<table style="border:1px solid #CAD6E0"  align="center" cellpadding="0" cellspacing="0" border="0" width="100%">
+<tbody>
+
+	<tr>
+		<td class="header" height="42" align="left" valign="middle" width="100%" bgcolor="#E4EBEB">			
+			The MNC Inc.		
+		</td>
+	</tr>
+	<tr>
+		<td class="nav" height="21" align="left" valign="middle" width="100%" bgcolor="#EFEBEB">
+			<h:link value="Regions"  outcome="regions"/>
+		</td>
+	</tr>
+	<tr>
+		<td height="1" width="100%" bgcolor="#CAD6E0"></td>
+	</tr>	
+
+	<tr>
+		<td width="100%"  colspan="2" style="padding: 1%;">
+			<div style="clear: both;"><ui:insert name="pageHeader">Page Header</ui:insert></div>
+			<div class="message"> <ui:insert name="message">Message</ui:insert></div>
+			<div class="addLink"> <ui:insert name="addLink">Add Link</ui:insert></div>
+			<table width="100%" style="height:150px" align="left" cellpadding="0" cellspacing="0" border="0">
+			<tbody>
+				<tr>
+					<td align="center" width="100%" valign="middle">
+					
+					<ui:insert name="body">Page Body</ui:insert>
+					
+					</td>
+				</tr>
+			</tbody>
+			</table>
+		</td>
+	</tr>	
+	
+	<tr class="bottom">
+		<td colspan="2"  valign="bottom" height="1" width="100%" bgcolor="#CAD6E0">CopyLeft 2013; All Rights Unreserved.</td>
+	</tr>
+</tbody>
+</table>
+</body>
+		
+</html>
