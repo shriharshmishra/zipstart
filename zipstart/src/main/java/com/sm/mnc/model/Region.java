@@ -18,7 +18,7 @@ import org.hibernate.validator.constraints.Length;
  *
  */
 @Entity
-@Table(name="REGIONS", uniqueConstraints = @UniqueConstraint(columnNames = "REGION_NAME"))
+@Table(name="REGION", uniqueConstraints = @UniqueConstraint(columnNames = "REGION_NAME"))
 public class Region implements Serializable {
 
 	
