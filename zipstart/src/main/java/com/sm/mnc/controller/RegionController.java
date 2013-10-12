@@ -40,5 +40,10 @@ public class RegionController {
 			return "createRegion";
 		}
 	}
+	
+	public String loadRegion(Region region) {	
+		editedRegion = region;
+		return "viewRegion";
+	}
 
 }
