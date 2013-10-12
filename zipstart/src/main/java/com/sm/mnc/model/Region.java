@@ -24,6 +24,7 @@ public class Region implements Serializable {
 	}
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="REGION_ID")
 	public Long getRegionId() {
 		return this.regionId;
