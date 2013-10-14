@@ -22,7 +22,7 @@ import org.hibernate.validator.constraints.Length;
  */
 @Entity
 @Table(name="REGION", uniqueConstraints = @UniqueConstraint(columnNames = "REGION_NAME"))
-public class Region implements Serializable {
+public class Region extends BaseEntity implements Serializable {
 
 	
 	private Long regionId;
