@@ -1,17 +1,20 @@
 package com.sm.mnc.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
+
 
 /**
  * Entity implementation class for Entity: Region
@@ -25,6 +28,7 @@ public class Region implements Serializable {
 	private Long regionId;
 	private String regionName;
 	private static final long serialVersionUID = 1L;
+	private List<Country> countries;
 
 	public Region() {
 		super();
@@ -50,6 +54,30 @@ public class Region implements Serializable {
 
 	public void setRegionName(String regionName) {
 		this.regionName = regionName;
+	}
+	
+	//bi-directional many-to-one association to Country
+	@OneToMany(mappedBy="region")
+	public List<Country> getCountries() {
+		return this.countries;
+	}
+
+	public void setCountries(List<Country> countries) {
+		this.countries = countries;
+	}
+
+	public Country addCountry(Country country) {
+		getCountries().add(country);
+		country.setRegion(this);
+
+		return country;
+	}
+
+	public Country removeCountry(Country country) {
+		getCountries().remove(country);
+		country.setRegion(null);
+
+		return country;
 	}
    
 }

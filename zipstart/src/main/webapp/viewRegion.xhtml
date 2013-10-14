@@ -10,7 +10,13 @@
 			<ui:define name="message"><h:outputText value="#{editedRegion.regionName}" /> region has the following countries.</ui:define>
 			<ui:define name="addLink"><h:link outcome="createRegion">Create New Region</h:link></ui:define>
 			<ui:define name="body">				
-				
+				<h:form>								 	
+					<h:dataTable value="#{editedRegion.countries}" var="country" >
+						<h:column>
+							<h:commandLink value="#{country.countryName}" />						
+						</h:column>			
+					</h:dataTable>
+				</h:form>
 			</ui:define>
 	</ui:composition>
 
