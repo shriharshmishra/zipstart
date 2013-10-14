@@ -38,5 +38,9 @@ public class RegionService {
 	public void loadRegion(Region region) {
 		editedRegion = em.find(Region.class, region.getRegionId());
 	}
+	
+	public void createNewRegion() {		
+		this.editedRegion = new Region();
+	}
 
 }

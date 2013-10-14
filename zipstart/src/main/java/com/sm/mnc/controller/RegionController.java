@@ -1,7 +1,5 @@
 package com.sm.mnc.controller;
 
-import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
@@ -23,18 +21,20 @@ public class RegionController {
 	@Inject
 	Conversation conversation;
 	
-	private Region editedRegion;
-	
-	@PostConstruct
-	public void initNewRegion() {		
-		editedRegion =  new Region();
+	public String initNewRegion() {
+		if (conversation.isTransient()) {
+			conversation.begin();
+		}
+		regionService.createNewRegion();
+		return "createRegion";
 	}
 	
 	public String saveRegion(Region region) {
-		try {
-			regionService.saveRegion(region);
-			facesContext.addMessage(null, new FacesMessage("Region created successfully."));
-			return "regions";
+		try {			 
+			regionService.saveRegion(region);			 
+			facesContext.addMessage(null, new FacesMessage("Region saved successfully."));			
+			conversation.end();
+			return "regions?force-redirect=true";
 		} catch (Exception e){
 			facesContext.addMessage(null, new FacesMessage("Region creation failed."));
 			return "createRegion";

@@ -6,13 +6,10 @@
 	
 	<ui:composition template="/WEB-INF/templates/default.xhtml">
 			<ui:define name="pageTitle">Regions</ui:define>
-			<ui:define name="pageHeader">Create Region</ui:define>
+			<ui:define name="pageHeader">Edit Region</ui:define>
 			<ui:define name="message">Enter the details - <br/> <h:messages globalOnly="true"/></ui:define>
-			<ui:define name="addLink"><!-- <h:outputLink value="#" >Create New Region</h:outputLink> --></ui:define>
-			<ui:define name="body">
-				<f:metadata>
-					<f:event listener="#{regionController.initNewRegion()}" type="preRenderView" />
-				</f:metadata>				
+			<ui:define name="addLink"></ui:define>
+			<ui:define name="body">								
 				<h:form>				
 					<h:panelGrid columns="2">
 						<h:outputLabel for="region" value="Name:" />
